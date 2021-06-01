@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "İller";
+}
+
+@using Kariyerim2.Models
+@model List<il>
+@section head{
+    <style>
+        .hata {
+            color: red;
+        }
+    </style>
+}
+
+@section body{
+    <div class="modal fade small-modal" id="small-modal" tabindex="-1" role="dialog" aria-labelledby="small-modal-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" data-border-top="multi">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="small-modal-label">İl sil</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="mesaj"></p>
+                    <p class="hata"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+                    <button type="button" class="btn btn-danger tedSil"> Evet</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+}
+
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    İl işlemleri
+                </div>
+                <div class="block-controls">
+
+                    <a href="/Il/IlEkle/" class="btn btn-success rounded"> İl ekle</a>
+                </div>
+                <div class="block-content-outer">
+                    <div class="block-content-inner">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>İl Adı</th>
+                                    <th>Güncelle</th>
+                                    <th>Sil</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (il item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.il_adi</td>
+
+                                        <td><a href="/Il/IlGuncelle/@item.il_kodu" class="btn btn-primary">Güncelle</a></td>
+
+
+                                        <td>
+                                            <button class="btn btn-danger modalAc" data-tid="@item.il_kodu" data-sirket="@item.il_adi" data-toggle="modal" data-target="#small-modal">
+                                                Sil
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+@section scripts{
+
+    <script src="~/Content/js/jquery-1.8.3.min.js"></script>
+
+    <script>
+        $(".modalAc").click(function () {
+            $(".modal-body>p.hata").html("");
+            var egitimAdi = $(this).data("sirket");
+            $(".modal-body>p.mesaj").html(egitimAdi + " isimli il silinsin mi");
+            var id = $(this).data("tid");
+            $(".tedSil").data("tid", id);
+
+
+
+        });
+
+        $(".tedSil").click(function () {
+            var id = $(this).data("tid");
+            $.ajax(
+                {
+                    type: "POST",
+                    url: "/Il/IlSil/" +id,
+                    success: function (durum) {
+                        if (durum == "tamam") {
+                            window.location.replace("/Il/Index");
+                        } else {
+                            $(".modal-body>p.hata").html(" Hata oluştu.");
+                        }
+
+                    }
+
+                });
+        });
+
+
+    </script>
+    }

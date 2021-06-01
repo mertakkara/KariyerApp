@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Kayıt ol";
+}
+<body>
+    <div id="content">
+        <div class="container">
+            @ViewBag.mesaj
+            <form class="modal-content animate" action="KullaniciEkle" method="post">
+                <div class="container">
+                    <div class="form-group">
+                        Kullanıcı adı: <input type="text" name="kadi" /><br />
+                    </div>
+                    <div class="form-group">
+                        Parola: <input type="password" name="parola" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label>Kayıt türü</label>
+                        <select name="rol">
+                            <option value="i">İs veren</option>
+                            <option value="u">İs arayan</option>
+                            <option value="a">Admin</option>
+                        </select>
+                    </div>
+                    <button type="submit">Kaydet</button>
+                    <label>
+                        <a class="btn-danger" href="/Security/Login">Hesabım var</a>
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="space40"></div>
+        <div class="space50"></div>
+    </div>
+    </div>
+    <script type="text/javascript" src="/Content/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/js/functions.js"></script>
+    <script type="text/javascript" defer src="/Content/js/jquery.flexslider.js"></script>
+</body>
+

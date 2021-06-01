@@ -1,0 +1,34 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Isyeri Ekle";
+}
+@model isyeri
+
+<div>
+    <form class="modal-content animate" action="/Isyeri/IsyeriEkle" method="post" role="form">
+        <div class="form-group">
+            <label>sektor adı</label>
+            <select name="sektor_id">
+                @foreach (sektor item in ViewBag.sektor)
+                {
+                    <option value="@item.sektor_id">@item.sektor_adi</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>ilce adı</label>
+            <select name="ilce_id">
+                @foreach (ilce item in ViewBag.ilce)
+                {
+                    <option value="@item.ilce_kodu">@item.ilce_adi</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">İsyeri Adı</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="İsyeri adı giriniz" name="isyeri_adi">
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>

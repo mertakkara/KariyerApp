@@ -1,0 +1,59 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+@using Kariyerim2.Models
+@model List<isyeri>
+<div>
+
+    <td><a href="/Isyeri/IsyeriEkle/" class="btn btn-blue btn-group-lg"> İsyeri ekle</a></td>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>İsyeri Adı</th>
+                <th>ilce Adı</th>
+                <th>Sektor Adı</th>
+
+                <th>Sil</th>
+                <th>Güncelle</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (isyeri item in Model)
+            {
+
+            <tr>
+
+                <td><span class="label label-primary">  @item.is_yeri_adi</span> </td>
+
+
+
+
+
+                <td><span class="label label-primary">  @item.ilce.ilce_adi</span> </td>
+
+                <td><span class="label label-primary">  @item.sektor.sektor_adi</span> </td>
+
+
+
+                <td><a href="/Isyeri/IsyeriSil/@item.is_yeri_id" class="btn btn-danger rounded"> Sil</a></td>
+
+                <td><a href="/Isyeri/IsyeriGuncelle/@item.is_yeri_id" class="btn btn-danger rounded"> Güncelle</a></td>
+
+
+
+            </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+
+</div>

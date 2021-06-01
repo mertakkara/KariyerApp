@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "SektorEkle";
+}
+
+@using Kariyerim2.Models
+@model sektor
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Sektor Ekleme Sayfası
+                </div>
+                <div class="block-controls">
+                    <a class="btn btn-warning rounded" href="/Egitim/Index"> Sektorler Sayfası </a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer" style="display: block;">
+                <div class="block-content-inner">
+                    <form action="/Sektor/SektorEkle" method="post" role="form">
+                        @if (Model != null)
+                        {
+                            <input type="hidden" name="sektor_id" value="@Model.sektor_id" />
+                        }
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Egitim Adı</label>
+                            @if (Model.sektor_adi == null)
+                            {
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Sektro adı giriniz" name="sektor_adi">
+                            }
+                            else
+                            {
+                                <input value="@Model.sektor_adi" type="text" class="form-control" id="exampleInputEmail1" placeholder="Sektor adı giriniz" name="sektor_adi">
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Sektor Tanımı</label>
+                            @if (Model.sektor_tanimi == null)
+                            {
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Sektor tanımı giriniz" name="sektor_tanimi">
+                            }
+                            else
+                            {
+                                <input value="@Model.sektor_tanimi" type="text" class="form-control" id="exampleInputEmail1" placeholder="Sektor Tanımı giriniz" name="sektor_tanimi">
+                            }
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

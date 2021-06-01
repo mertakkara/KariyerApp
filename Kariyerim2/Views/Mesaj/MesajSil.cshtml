@@ -1,0 +1,24 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Mesaj Sil";
+}
+@model mesaj
+
+<div>
+    <a href="Mesaj/Index"> Mesaj sayfasına dön</a>
+
+    <form class="modal-content animate" action="/Mesaj/MesajSil" method="post">
+
+        <input type="hidden" name="mesaj_id" value="@Model.mesaj_id" />
+
+        <label>@Model.mesaj_id nolu mesaj silinsin mi?</label>
+        <input type="submit" class="btn-danger" value="Evet" />
+
+
+
+
+    </form>
+
+
+
+</div>

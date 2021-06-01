@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using Kariyerim2.Models
+@model List<isi>
+<form id="search-page-form" role="form" method="post" action="/Is/BasvuruFiltrele">
+    <div class="form-group">
+        <div class="input-group col-sm-7">
+            <input type="text" name="name" class="form-control" id="classic-search-bar" placeholder="iş yeri adı giriniz">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Arama yap</button>
+            </span>
+        </div>
+    </div>
+</form>
+<div>
+    <td><a href="/Is/IsEkle/" class="btn btn-blue btn-group-lg"> Is ekle</a></td>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Pozisyon Adı</th>
+                <th>Departman Adı</th>
+                <th>Egitim Adı</th>
+                <th>Is yeri</th>
+                <th>Sektor adı</th>
+                <th>Sil</th>
+                <th>Güncelle</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (isi item in Model)
+            {
+                <tr>
+                    <td><span class="label label-primary">  @item.pozisyon.pozisyon_adi</span> </td>
+                    <td><span class="label label-primary">  @item.departman.departman_adi</span> </td>
+                    <td><span class="label label-primary">  @item.egitim.egitim_adi</span> </td>
+                    <td><span class="label label-primary">  @item.isyeri.is_yeri_adi</span> </td>
+                    <td><span class="label label-primary">  @item.isyeri.sektor.sektor_adi</span> </td>
+                    <td><a href="/Is/IsSil/@item.is_id" class="btn btn-danger rounded"> Sil</a></td>
+                    <td><a href="/Is/IsGuncelle/@item.is_id" class="btn btn-danger rounded"> Güncelle</a></td>
+                </tr>
+}
+        </tbody>
+    </table>
+</div>
+
+
+

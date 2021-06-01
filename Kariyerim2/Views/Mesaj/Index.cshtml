@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@using Kariyerim2.Models
+@model List<mesaj>
+<div>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Gönderen Adı</th>
+                <th>Başlık Adı</th>
+                <th>Mesaj</th>
+                <th>Sil</th>
+
+
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (mesaj item in Model)
+            {
+
+            <tr>
+                <td><span class="label label-primary">  @item.name</span> </td>
+                <td><span class="label label-primary">  @item.title</span> </td>
+                <td><span class="label label-primary">  @item.message</span> </td>
+                <td><a href="/Mesaj/MesajSil/@item.mesaj_id" class="btn btn-danger rounded"> Sil</a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+
+</div>
+
+

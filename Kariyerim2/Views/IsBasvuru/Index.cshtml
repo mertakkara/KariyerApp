@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Is Başvuru";
+}
+
+@using Kariyerim2.Models
+@model List<isi>
+
+<div>
+    <form class="form-inline" action="/IsBasvuru/BasvuruFiltrele" method="post" role="form">
+        <div class="form-group">
+            <label>Pozisyon</label>
+            <select name="pozisyon_id">
+                @foreach (pozisyon item in ViewBag.pozisyon)
+                {
+                    <option value="@item.pozisyon_id">@item.pozisyon_adi</option>
+                }
+            </select>
+            <label>Departman</label>
+            <select name="departman_id">
+                @foreach (departman item in ViewBag.departman)
+                {
+                    <option value="@item.departman_id"> @item.departman_adi</option>
+                }
+            </select>
+
+            <label>Egitim</label>
+            <select name="egitim_id">
+                @foreach (egitim item in ViewBag.egitim)
+                {
+                    <option value="@item.egitim_id"> @item.egitim_adi</option>
+                }
+            </select>
+       
+           
+          
+        </div>
+        <br />
+        <div class="form-group">
+            <label>İl   Adı  </label>
+            <select name="il_kodu">
+                @foreach (il item in ViewBag.il)
+                {
+                    <option value="@item.il_kodu">@item.il_adi</option>
+                }
+            </select>
+            <label>İlce Adı</label>
+            <select name="ilce_kodu">
+                @foreach (ilce item in ViewBag.ilce)
+                {
+                    <option value="@item.ilce_kodu">@item.ilce_adi</option>
+                }
+            </select>
+            <button type="submit" class="btn btn-primary">Filtrele</button>
+        </div>
+       
+      
+
+
+
+
+
+    </form>
+
+
+
+</div>
+
+
+<div>
+
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Is yeri</th>
+                <th>Pozisyon Adı</th>
+                <th>Departman Adı</th>
+                <th>Egitim Adı</th>
+                <th>İl</th>
+                <th>İlçe</th>
+                <th>İşe başvur</th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (isi item in Model)
+            {
+
+                <tr>
+
+                    <td><span class="label label-primary">  @item.isyeri.is_yeri_adi</span> </td>
+
+                    <td><span class="label label-primary">  @item.pozisyon.pozisyon_adi</span> </td>
+
+
+
+
+
+                    <td><span class="label label-primary">  @item.departman.departman_adi</span> </td>
+
+
+
+                    <td><span class="label label-primary">  @item.egitim.egitim_adi</span> </td>
+                    <td><span class="label label-primary">  @item.isyeri.ilce.il.il_adi</span> </td>
+                    <td><span class="label label-primary">  @item.isyeri.ilce.ilce_adi</span> </td>
+
+
+
+
+
+
+
+                    <td><a href="/IsBasvuru/IseBasvur/@item.is_id" class="btn btn-danger rounded"> Basvur</a></td>
+
+
+
+
+
+                </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+
+</div>
+
+
+

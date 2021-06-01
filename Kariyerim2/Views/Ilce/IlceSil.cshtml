@@ -1,0 +1,24 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Ilce Sil";
+}
+@model ilce
+
+<div>
+    <a href="Ilce/Index"> Isler</a>
+
+    <form class="modal-content animate" action="/Ilce/IlceSil" method="post">
+
+        <input type="hidden" name="ilce_kodu" value="@Model.ilce_kodu" />
+
+        <label>@Model.ilce_adi silinsin mi?</label>
+        <input type="submit" class="btn-danger" value="Evet" />
+
+
+
+
+    </form>
+
+
+
+</div>

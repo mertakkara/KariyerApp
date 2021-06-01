@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Pozisyonlar";
+}
+
+
+@using Kariyerim2.Models
+@model List<pozisyon>
+<div>
+
+    <td><a href="/Pozisyon/PozisyonEkle/" class="btn btn-blue btn-group-lg"> Pozisyon ekle</a></td>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Pozisyon Adı</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (pozisyon item in Model)
+            {
+
+                <tr>
+
+                    <td><span class="label label-primary">  @item.pozisyon_adi</span> </td>
+
+
+
+
+
+
+
+
+                    <td><a href="/Pozisyon/PozisyonSil/@item.pozisyon_id" class="btn btn-danger rounded"> Sil</a></td>
+                    <td><a href="/Pozisyon/PozisyonGuncelle/@item.pozisyon_id" class="btn btn-danger rounded"> Güncelle</a></td>
+
+                </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+
+
+
+</div>
+
+
+
+
+

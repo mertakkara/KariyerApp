@@ -1,0 +1,39 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Is Ekle";
+}
+@model isi
+<div>
+    <form class="modal-content animate" action="/Is/IsEkle" method="post" role="form">
+        <div class="form-group">
+            <label>Pozisyon</label>
+            <select name="pozisyon_id">
+                @foreach (pozisyon item in ViewBag.pozisyon)
+                {<option value="@item.pozisyon_id">@item.pozisyon_adi</option>}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Departman</label>
+            <select name="departman_id">
+                @foreach (departman item in ViewBag.departman)
+                {<option value="@item.departman_id">@item.departman_adi</option>}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Egitim</label>
+            <select name="egitim_id">
+                @foreach (egitim item in ViewBag.egitim)
+                {<option value="@item.egitim_id">@item.egitim_adi</option>}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>İs yeri</label>
+            <select name="is_yeri_id">
+                @foreach (isyeri item in ViewBag.isyeri)
+                {<option value="@item.is_yeri_id">@item.is_yeri_adi</option> }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+

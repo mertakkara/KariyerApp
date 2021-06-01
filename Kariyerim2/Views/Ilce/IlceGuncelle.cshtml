@@ -1,0 +1,61 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Is Ekle";
+}
+@model ilce
+
+<div>
+    <a href="Ilce/Index"> Is Eklem Sayfası</a>
+
+    <form class="modal-content animate" action="/Ilce/IlceGuncelle" method="post" role="form">
+
+        <div class="form-group">
+            <label>ilce kodu</label>
+            <select name="ilce_kodu">
+                @foreach (ilce item in ViewBag.ilce)
+                {
+                    if (item.ilce_kodu == Model.ilce_kodu)
+                    {
+                        <option selected="selected" value="@item.ilce_kodu">@item.ilce_kodu</option>
+                    }
+                    else
+                    {
+                        <option value="@item.ilce_kodu"> @item.ilce_kodu</option>
+                    }
+                }
+
+            </select>
+
+
+        </div>
+        <div class="form-group">
+            <label>il adı</label>
+            <select name="il_kodu">
+                @foreach (il item in ViewBag.il)
+                {
+                    <option value="@item.il_kodu">@item.il_adi</option>
+                }
+
+            </select>
+
+
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">İlce Adı</label>
+
+            <input type="text" class="form-control" id="exampleInputEmail1" value="@Model.ilce_adi" name="ilce_adi">
+
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+
+
+
+
+
+    </form>
+
+
+
+</div>

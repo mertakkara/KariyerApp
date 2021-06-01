@@ -1,0 +1,15 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "IseBasvur";
+}
+@model isi
+<div>
+    <a href="Is/Index"> Isler</a>
+    <form class="modal-content animate" action="/IsBasvuru/IseBasvur" method="post">
+        <input type="hidden" name="ad" value="@HttpContext.Current.User.Identity.Name" />
+        <input type="hidden" name="is_id" value="@Model.is_id" />
+        <label>@Model.isyeri.is_yeri_adi başvurulsun mu?</label>
+        <input type="submit" class="btn-danger" value="Evet" />
+    </form>
+</div>
+

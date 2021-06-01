@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Departman Ekle";
+}
+
+
+@using Kariyerim2.Models
+@model departman
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="block-heading">
+                <div class="main-text h2">
+                    Departman Ekleme Sayfası
+                </div>
+                <div class="block-controls">
+                    <a class="btn btn-warning rounded" href="/Departman/Index"> Deparmanlar Sayfası </a>
+                    <span aria-hidden="true" class="icon icon-arrow-down icon-size-medium block-control-collapse"></span>
+                </div>
+            </div>
+            <div class="block-content-outer" style="display: block;">
+                <div class="block-content-inner">
+                    <form action="/Departman/DepartmanEkle" method="post" role="form">
+                        @if (Model != null)
+                        { <input type="hidden" name="departman_id" value="@Model.departman_id" />}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Departman Adı</label>
+                            @if (Model.departman_adi == null)
+                            { <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Departman adı giriniz" name="departman_adi">}
+                            else
+                            {  <input value="@Model.departman_adi" type="text" class="form-control" id="exampleInputEmail1" placeholder="Departman adı giriniz" name="departman_adi"> }
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Departman Tanımı</label>
+                            @if (Model.departman_tanimi == null)
+                            { <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Departman tanımı giriniz" name="departman_tanimi">}
+                            else { <input value="@Model.departman_tanimi" type="text" class="form-control" id="exampleInputEmail1" placeholder="Departman TAnımı giriniz" name="departman_tanimi"> }
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

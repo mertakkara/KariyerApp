@@ -1,0 +1,222 @@
+﻿
+@{ Layout = null; }
+
+
+
+<!DOCTYPE html>
+<html class="not-ie" lang="en">
+<!--
+    ucorpora by freshdesignweb.com
+    Twitter: https://twitter.com/freshdesignweb
+    https://www.freshdesignweb.com/ucorpora/
+-->
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="utf-8">
+    <title>Is Bulma Sitesi</title>
+    <meta name="description" content="ucorpora demo - Free Business Corporate HTML Template">
+    <meta name="keywords" content="ucorpora, ucorpora demo, free, template, corporate, clean, modern, bootstrap, creative, design">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/Content/img/favicon.ico" rel="icon" type="image/png">
+    <title>@ViewBag.Title</title>
+    <!-- Styles -->
+    <link href="/Content/css/styles.css" rel="stylesheet">
+    <link href="/Content/css/bootstrap-override.css" rel="stylesheet">
+    <!-- Font Avesome Styles -->
+    <link href="/Content/css/font-awesome/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/css/flexslider.css" type="text/css" media="screen">
+    <!-- Internet Explorer condition - HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="/Content/http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    @RenderSection("head", false);
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="row t-container">
+                <div class="row space40"></div>
+                <!-- Logo -->
+                <div class="span3">
+                    <div class="logo">
+                        <a href="#"><img src="/Content/img/logo-header.png" alt=""></a>
+
+                    </div>
+                </div>
+                <div class="span9">
+                    <div class="row space60"></div>
+                    <nav id="nav" role="navigation">
+                        <a href="/Content/#nav" title="Show navigation">Show navigation</a>
+                        <a href="/Content/#" title="Hide navigation">Hide navigation</a>
+                        <ul class="clearfix">
+                            <li class="active"><a href="/Is/Index" title="">İşler</a></li>
+                            @if (User.IsInRole("i"))
+                            {
+                        <li class="active"><a href="/Pozisyon/Index" title="">Pozisyonlar</a></li>}
+                         
+                            @if (User.IsInRole("a"))
+                            {
+                        <li class="active">
+                            <a href="components.htm" title=""><span>Admin Sayfası</span></a>
+                            <ul>
+                                <li class="active"><a href="/Sektor/Index" title="">Sektörler</a></li>
+                                <li class="active"><a href="/Egitim/Index" title="">Egitimler</a></li>
+                                <li class="active"><a href="/Departman/Index" title="">Departmanlar</a></li>
+                                <li class="active"><a href="/Isyeri/Index" title="">Isyerleri</a></li>
+                            </ul>
+                            </li>
+                            }
+                            @if (User.IsInRole("u"))
+                            {
+                        <li class="active"><a href="/IsBasvuru/Index" title="">İşe Başvur</a></li>}
+                            @if (User.IsInRole("u"))
+                            {
+                        <li class="active"><a href="/IsIsci/Index" title=""> Başvurularım</a></li>}
+
+                            @if (User.IsInRole("a"))
+                            {
+                        <li class="active"><a href="/Mesaj/Index" title=""> Mesajlar</a></li>}
+
+                            @if (User.IsInRole("a"))
+                            {
+                        <li class="active">
+                            <a href="components.htm" title=""><span>Yer Bilgileri</span></a>
+                            <ul>
+                                <!-- Submenu -->
+                                <li class="active"><a href="/Il/Index" title=""> İller</a></li>
+                                <li class="active"><a href="/Ilce/Index" title=""> İlçeler</a></li>
+                            </ul> <!-- End Submenu -->
+                        </li>
+}
+
+                            <li class="active"><a href="/Security/LogOut" title="">Çıkış yap</a></li>
+                        </ul>
+</nav>
+                </div>
+            </div>
+
+
+       
+
+
+
+</header>
+    <section id="titlebar">
+        <!-- Container -->
+        <div class="container">
+
+            <div class="eight columns">
+                <h3 class="left">Hoş geldiniz  @HttpContext.Current.User.Identity.Name</h3>
+            </div>
+
+            <div class="eight columns">
+                <nav id="breadcrumbs">
+                    <ul>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+        <!-- Container / End -->
+    </section>
+    <div class="f-hr"></div>
+    <div class="row space40"></div>
+    <!-- Header End -->
+    <!-- Content -->
+    <div id="content">
+        <div class="container">
+            @RenderBody()
+        </div>
+
+        <div class="space40"></div>
+    </div>
+    </div>
+    <!-- Content End -->
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span5">
+                    <div class="span5">
+
+                        @if (User.IsInRole("u") || User.IsInRole("i"))
+                        {
+
+
+                        <h3>İletişim Formu</h3>
+                        <div>
+                            <form class="form-main" action="/Mesaj/MesajGonder" method="post">
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Adınızı giriniz</label>
+
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Adınızı giriniz" name="name">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Başlık giriniz</label>
+
+                                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Başlık giriniz" name="title">
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Mesaj giriniz</label>
+
+                                    <textarea type="text" class="form-control" id="exampleInputEmail1" placeholder="Mesaj giriniz" name="message"></textarea>
+
+                                </div>
+
+
+                                <button type="submit" class="btn btn-primary">Gönder</button>
+                            </form>
+                        </div>}
+                    </div>
+                    
+                </div>
+                <div class="span3 offset3">
+                    <h3>Adres</h3>
+                    Cumhuriyet mahallesi<br>
+                    Yıldız sokak no:221<br>
+                    İstanbul/Türkiye<br>
+                    <br>
+                    <i class="icon-phone"></i>+80 880 555 999<br>
+                    <i class="icon-envelope"></i><a href="/Content/mailto:support@example.com">support@example.com</a><br>
+                    <i class="icon-home"></i><a href="/Content/#">www.example.com</a>
+                    <div class="row space40"></div>
+                    <a href="https://www.behance.net/" class="social-network sn2 behance"></a>
+                    <a href="https://tr-tr.facebook.com/" class="social-network sn2 facebook"></a>
+                    <a href="https://tr.pinterest.com/" class="social-network sn2 pinterest"></a>
+                    <a href="https://www.flickr.com/" class="social-network sn2 flickr"></a>
+                    <a href="https://dribbble.com/" class="social-network sn2 dribbble"></a>
+                    <a href="https://www.last.fm/tr/" class="social-network sn2 lastfm"></a>
+                    <a href="https://dribbble.com/tags/forrst" class="social-network sn2 forrst"></a>
+                    <a href="https://www.xing.com/" class="social-network sn2 xing"></a>
+                </div>
+            </div>
+            <div class="row space50"></div>
+            <div class="row">
+                <div class="span6">
+                    <div class="logo-footer">
+                        Design by <a href="/Content/https://www.freshdesignweb.com">freshDesignweb</a>
+                    </div>
+                </div>
+                <div class="span6 right">
+                    &copy; 2020. Bütün hakları alınmıştır.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- JavaScripts -->
+    @RenderSection("body", false)
+    <script type="text/javascript" src="/Content/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Content/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Content/js/functions.js"></script>
+    <script type="text/javascript" defer src="/Content/js/jquery.flexslider.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>
+

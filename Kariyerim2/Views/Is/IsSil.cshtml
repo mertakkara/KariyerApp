@@ -1,0 +1,17 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Is Sil";
+}
+@model isi
+    <div>
+        <form class="modal-content animate" action="/Is/IsSil" method="post">
+            <input type="hidden" name="is_id" value="@Model.is_id" />
+            <label>@Model.isyeri.is_yeri_adi silinsin mi?</label>
+            <input type="submit" class="btn-danger" value="Evet" />
+        </form>
+    </div>
+
+
+
+
+

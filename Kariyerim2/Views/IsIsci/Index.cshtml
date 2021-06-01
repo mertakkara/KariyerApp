@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@using Kariyerim2.Models
+@model List<isisci>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>İşyeri Adı</th>
+                <th>Departman Adı</th>
+                <th>Pozisyon Adı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (isisci item in Model)
+            {
+            <tr>
+                <td><span class="label label-primary">  @item.isi.isyeri.is_yeri_adi</span> </td>
+                <td><span class="label label-primary">  @item.isi.departman.departman_adi</span> </td>
+                <td><span class="label label-primary">  @item.isi.pozisyon.pozisyon_adi</span> </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

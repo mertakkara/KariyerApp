@@ -1,0 +1,93 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "ISGuncelle";
+}
+@model isi
+
+<div>
+    <form class="modal-content animate" action="/Is/IsGuncelle" method="post" role="form">
+        <div class="form-group">
+            <label>İs ID</label>
+            <select name="is_id">
+                @foreach (isi item in ViewBag.isi)
+                {
+                    if (item.is_id == Model.is_id)
+                    {
+                        <option selected="selected" value="@item.is_id">@item.is_id</option>
+                    }
+                    else
+                    {
+                        <option value="@item.is_id"> @item.is_id</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Pozisyon</label>
+            <select name="pozisyon_id">
+                @foreach (pozisyon item in ViewBag.pozisyon)
+                {
+                    if (item.pozisyon_id == Model.pozisyon_id)
+                    {
+                        <option selected="selected" value="@item.pozisyon_id">@item.pozisyon_adi</option>
+                    }
+                    else
+                    {
+                        <option value="@item.pozisyon_id"> @item.pozisyon_adi</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Departman</label>
+            <select name="departman_id">
+                @foreach (departman item in ViewBag.departman)
+                {
+
+                    if (item.departman_id == Model.departman_id)
+                    {
+                        <option selected="selected" value="@item.departman_id">@item.departman_adi</option>
+                    }
+                    else
+                    {
+                        <option value="@item.departman_id"> @item.departman_adi</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Egitim</label>
+            <select name="egitim_id">
+                @foreach (egitim item in ViewBag.egitim)
+                {
+                    if (item.egitim_id == Model.egitim_id)
+                    {
+                        <option selected="selected" value="@item.egitim_id">@item.egitim_adi</option>
+                    }
+                    else
+                    {
+                        <option value="@item.egitim_id"> @item.egitim_adi</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label>İs yeri</label>
+            <select name="is_yeri_id">
+                @foreach (isyeri item in ViewBag.isyeri)
+                {
+                    if (item.is_yeri_id == Model.is_yeri_id)
+                    {
+                        <option selected="selected" value="@item.is_yeri_id">@item.is_yeri_adi</option>
+                    }
+                    else
+                    {
+                        <option value="@item.is_yeri_id">@item.is_yeri_adi</option>
+                    }
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </form>
+</div>
+

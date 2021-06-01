@@ -1,0 +1,24 @@
+﻿@using Kariyerim2.Models;
+@{
+    ViewBag.Title = "Pozisyon Sil";
+}
+@model pozisyon
+
+<div>
+    <a href="Pozisyon/Index"> Pozisyon</a>
+
+    <form class="modal-content animate" action="/Pozisyon/PozisyonSil" method="post">
+
+        <input type="hidden" name="pozisyon_id" value="@Model.pozisyon_id" />
+
+        <label>@Model.pozisyon_adi silinsin mi?</label>
+        <input type="submit" class="btn-danger" value="Evet" />
+
+
+
+
+    </form>
+
+
+
+</div>
